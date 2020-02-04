@@ -1,4 +1,4 @@
-
+const I = actor();
 Given('User go to url', () => {
     I.amOnPage('https://github.com');
 });
@@ -8,10 +8,10 @@ When('User provide invalid data', () => {
     I.click("//BUTTON[@class='btn-mktg btn-primary-mktg btn-large-mktg f4 btn-block my-3'][text()='Sign up for GitHub']");
     I.appendField("//INPUT[@id='user_login']", "Ganesh Tatipamul");
     I.appendField("//INPUT[@id='user_email']", "Ganesh Tatipamul");
-    I.appendField("//INPUT[@id='user_password']", "Ganesh Tatipamul")
+    I.appendField("//INPUT[@id='user_password']", "Ganesh Tatipamul");
 });
 
-Then(' User should sign up on url', () => {
+Then('User should get error', () => {
     I.see("//DIV[@class='flash flash-error my-3'][text()='There were problems creating your account.']")
 });
 
@@ -52,7 +52,7 @@ When('User provide valid credential', () => {
 });
 
 Then('User should check the functionality of app', () => {
-    I.click("//BUTTON[@class='MuiButtonBase-root MuiButton-root Login-submit-19 MuiButton-containedPrimary MuiButton-contained MuiButton-fullWidth']");
+    // I.click("//BUTTON[@class='MuiButtonBase-root MuiButton-root Login-submit-19 MuiButton-containedPrimary MuiButton-contained MuiButton-fullWidth']");
     I.wait(10);
     I.click("(//BUTTON[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit'])[2]");
     I.wait(10);
