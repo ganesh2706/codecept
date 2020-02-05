@@ -1,23 +1,21 @@
 const I = actor();
-Given('User go to url', () => {
-    I.amOnPage('https://github.com');
+Given('User go to gitHub url', () => {
+    I.amOnPage('https://github.com/join?source=header-home');
 });
 
 When('User provide invalid data', () => {
-    I.see('GitHub');
-    I.click("//BUTTON[@class='btn-mktg btn-primary-mktg btn-large-mktg f4 btn-block my-3'][text()='Sign up for GitHub']");
+    // I.click("//A[@href='/join?source=header-home'][contains(text(),'Sign')]");
     I.appendField("//INPUT[@id='user_login']", "Ganesh Tatipamul");
-    I.appendField("//INPUT[@id='user_email']", "Ganesh Tatipamul");
+    I.appendField("//INPUT[@id='user_email']", "ganesh.tatipamul@successive.tech");
     I.appendField("//INPUT[@id='user_password']", "Ganesh Tatipamul");
 });
 
 Then('User should get error', () => {
-    I.see("//DIV[@class='flash flash-error my-3'][text()='There were problems creating your account.']")
+    I.seeElement("//dd[@class='error']","Email is invalid or already taken");
 });
 
 When('User provide invalid credential', () => {
 
-    I.see('GitHub');
     I.click("//BUTTON[@class='btn-mktg btn-primary-mktg btn-large-mktg f4 btn-block my-3'][text()='Sign up for GitHub']");
     I.appendField("//INPUT[@id='user_login']", "Ganesh Tatipamul");
     I.appendField("//INPUT[@id='user_email']", "Ganesh Tatipamul");
@@ -31,7 +29,6 @@ Then('User should get error invalid username or password', () => {
 
 When('User provide invalid credential', () => {
     I.amOnPage('https://github.com');
-    I.see('GitHub');
     I.click("//button[@class=\"btn-link d-lg-none mt-1 js-details-target\"]")
     I.click("//a[@class=\"HeaderMenu-link no-underline mr-3\"]");
     I.appendField("//INPUT[@id='login_field']", "Ganesh Tatipamul");

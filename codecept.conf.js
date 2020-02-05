@@ -15,8 +15,8 @@ exports.config = {
   teardown: null,
   hooks: [],
   gherkin: {
-    features: './features/createUser.feature',
-    steps: ['./step_definitions/steps.js', './step_definitions/createAccount.js']
+    features: './features/*.feature',
+    steps: ['./step_definitions/steps.js', './step_definitions/createUser.js']
   },
   plugins: {
     screenshotOnFail: {
@@ -24,7 +24,11 @@ exports.config = {
     },
     retryFailedStep: {
       enabled: true
+    },
+    allure: {
+      enabled: true
     }
+
   },
   tests: './*_test.js',
   name: 'Codecept-Sample'

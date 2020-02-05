@@ -3,7 +3,7 @@ Feature: Allow user to Sign In and Sign Up
   I have to sign up and login into portal
 
   Background:
-    Given User go to url
+    Given User go to gitHub url
 
   Scenario: User creating account on github
     When User provide invalid data
